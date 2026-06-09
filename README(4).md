@@ -1,0 +1,153 @@
+# ⚡ LocalCoder
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Local--First-Yes-success?style=for-the-badge&logo=offline&logoColor=white&color=059669" alt="Local First" />
+  <img src="https://img.shields.io/badge/Ollama-Ready-blue?style=for-the-badge&logo=ollama&logoColor=white&color=2563EB" alt="Ollama" />
+  <img src="https://img.shields.io/badge/Model-Qwen2.5--Coder%2014B-purple?style=for-the-badge&logo=ai&logoColor=white&color=7C3AED" alt="Model" />
+  <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License" />
+</p>
+
+---
+
+**LocalCoder** is a secure, local-first AI coding agent designed to run entirely on your own hardware. Powered by **Ollama** and **Qwen2.5-Coder (14B/7B)**, it acts like a self-hosted Cursor or Claude Code, giving you agentic development capabilities without leaking your codebase or API keys to the cloud.
+
+---
+
+## ✨ Features
+
+- 🔒 **100% Offline & Private:** Your code never leaves your machine. No telemetry, no API subscription limits, no cloud dependencies.
+- 🛠️ **Agentic Tool Suite:** The agent can:
+  - Read, write, create, and delete files.
+  - Recursively explore directories.
+  - Search codebases efficiently using `ripgrep`.
+  - Run terminal commands locally.
+  - Inspect Git status and diffs.
+- 🛡️ **Interactive Safety Layer:** Built-in safeguards check every action:
+  - Destructive actions (like file deletion) require single-click approval.
+  - Dangerous shell commands (e.g., `rm -rf`, system calls) are intercepted and require manual permission.
+- 💾 **SQLite Memory & Indexing:** Seamlessly tracks your active project structure, past tasks, and system memories using Node's native SQLite capabilities.
+- ⚡ **Real-time Live Chat & Terminal Stream:** Real-time token streaming via WebSockets alongside terminal logging for full transparency of background actions.
+
+---
+
+## 🛠️ Prerequisites
+
+Before you start, make sure you have the following installed on your machine:
+
+| Dependency | Required Version / Install Command | Description |
+|---|---|---|
+| **Node.js** | `v24.x` or later (for native `node:sqlite`) | Runtime environment |
+| **Ollama** | [ollama.ai](https://ollama.ai/) | LLM orchestrator |
+| **Qwen Model** | `ollama pull qwen2.5-coder:14b` (or `7b`) | AI Coding brain |
+| **ripgrep** | See below | Super-fast codebase searching tool |
+
+### Installing ripgrep
+- **Windows:** `winget install BurntSushi.ripgrep.MSVC`
+- **macOS:** `brew install ripgrep`
+- **Linux:** `sudo apt install ripgrep` (Debian/Ubuntu) or `sudo dnf install ripgrep` (Fedora)
+
+---
+
+## 🚀 Quick Start
+
+Follow these simple steps to launch LocalCoder on your machine:
+
+### 1. Clone & Install Dependencies
+```bash
+# Clone the repository
+git clone https://github.com/Aokiro112/Localcoder-AI-coding-agent.git
+cd Localcoder-AI-coding-agent
+
+# Install monorepo dependencies (using npm workspaces)
+npm install
+```
+
+### 2. Configure Environment Variables
+Create a `.env` file inside the `packages/backend` folder. Defaults are automatically provided, but you can override them if needed:
+```bash
+# Copy default env configuration
+cp packages/backend/.env.example packages/backend/.env
+```
+Default configuration inside `packages/backend/.env`:
+```env
+OLLAMA_HOST=http://localhost:11434
+OLLAMA_MODEL=qwen2.5-coder:14b
+PORT=3001
+DB_PATH=./localcoder.db
+```
+
+### 3. Run Development Servers
+Start both the React+Vite frontend and Express backend servers concurrently:
+```bash
+npm run dev
+```
+
+Your browser should automatically open to **[http://localhost:5173](http://localhost:5173)**.
+
+---
+
+## 🧱 Architecture
+
+```mermaid
+graph TD
+    User([User UI]) -->|React Web UI| FE[Frontend: React + Vite + Zustand]
+    FE -->|WebSocket Events / REST API| BE[Backend: Express Server]
+    BE -->|Node:sqlite| DB[(SQLite Database)]
+    BE -->|Task Execution Loop| Orchestrator[Agent Orchestrator]
+    Orchestrator -->|System Prompt & Tools| Ollama[Ollama Server]
+    Ollama -->|Generates Tool Calls| Orchestrator
+    Orchestrator -->|Requires Permission?| Safety[Safety Layer]
+    Safety -->|Prompt User| User
+    Orchestrator -->|Executes Action| Tools[Tool execution: ripgrep, shell, fs]
+```
+
+### Folder Structure
+```
+localcoder/
+├── packages/
+│   ├── backend/           # Express agent server
+│   │   ├── src/
+│   │   │   ├── agent/     # Orchestrator, Ollama client, Safety layer
+│   │   │   ├── db/        # SQLite backend logic
+│   │   │   ├── tools/     # Tool execution (fs, shell, git, ripgrep)
+│   │   │   └── indexer/   # Watcher for project file changes
+│   └── frontend/          # Vite-powered React web dashboard
+│       ├── src/
+│       │   ├── components/# Modular chat, files, terminal components
+│       │   ├── hooks/      # useAgent, useWebSocket state managers
+│       │   └── store/      # Zustand global application state
+└── package.json           # Workspace configurations
+```
+
+---
+
+## 🛡️ Safety & Safeguards
+
+LocalCoder operates under a **"Trust but Verify"** model. 
+
+1. **Explicit Approvals:** The frontend will pause execution and pop up a modal requesting authorization whenever the agent attempts to:
+   - Run system-level execution commands (`runCommand`).
+   - Delete any workspace file (`deleteFile`).
+2. **Read-Before-Write:** The system prompt explicitly instructs the agent to review file contents and propose a diff before writing, keeping you in complete control of changes.
+
+---
+
+## 📜 Available NPM Scripts
+
+From the root directory:
+
+| Script | Description |
+|---|---|
+| `npm run dev` | Spins up frontend and backend development environments simultaneously. |
+| `npm run build` | Builds frontend assets and transpiles backend TypeScript. |
+| `npm run start` | Boots the built backend production build. |
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions to make LocalCoder even better! Feel free to:
+- Open issues for bug reports or feature suggestions.
+- Submit pull requests to expand our tool integrations (e.g. supporting Docker, database integrations, unit testing suites).
+
+*Created with ❤️ for local-first AI development.*
