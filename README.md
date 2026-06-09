@@ -189,4 +189,5 @@ The design style is defined in `App.js` and applies globally across screens:
 * **Soft Lavender (`#F5EEF9`)**: Screen backgrounds, giving a clean paper-like appearance.
 * **Crisp White (`#FFFFFF`)**: Core container boxes.
 #   P o r t f o l i o  
+ #   P o r t f o l i o  
  
