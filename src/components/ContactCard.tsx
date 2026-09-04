@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Mail, Copy, Check, ExternalLink } from "lucide-react";
 
 export default function ContactCard() {
-  const email = "aokiro@hikaris.in";
+  const email = "mayanktharwani9@gmail.com";
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
