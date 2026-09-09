@@ -76,18 +76,41 @@ function parseProjectMarkdown(filename: string, content: string): Project | null
       "Neo-Brutalist / Dark UI design"
     );
   } else if (filename.includes("(2)")) {
-    title = "KAIRO Super App";
-    tagline = "A production-grade, highly scalable Super App platform combining instant messaging, WebRTC calling, and payments.";
-    description = "KAIRO is a production-grade, highly scalable Super App platform. It combines a real-time messaging engine with typing indicators and receipts, encrypted communication channels (E2EE), high-fidelity WebRTC calling, and multi-service modules. It features a striking Neo-Brutalist Design Language with bold borders, high-contrast flat backgrounds, and premium micro-interactions.";
+    title = "Kairo AI";
+    tagline = "Autonomous AI-powered cybersecurity workstation combining real-time ReAct pen-testing, reconnaissance, and AST static security auditing.";
+    description = "Kairo AI is an autonomous AI-powered cybersecurity workstation that combines real-time ReAct penetration testing, passive reconnaissance, and AST-driven static code security auditing to identify and remediate vulnerabilities before adversaries exploit them.";
+    url = "https://kairo.bond";
     
-    techStack.push("React Native", "Expo SDK 54", "WebRTC", "Socket.IO", "Node.js", "Express", "MySQL 8.0", "Prisma ORM", "Docker");
+    techStack.push(
+      "Next.js 15",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Lucide React",
+      "Node.js",
+      "Express.js",
+      "Server-Sent Events (SSE)",
+      "Prisma ORM",
+      "SQLite",
+      "ReAct Agent Loop",
+      "Llama 3.3 70B",
+      "GPT-OSS 120B",
+      "Static AST / SAST Engine",
+      "Nmap",
+      "Nuclei",
+      "Subfinder",
+      "Wafw00f",
+      "Docker"
+    );
     
     features.push(
-      "Real-Time Messaging with chat receipts (Delivered/Seen)",
-      "High-Fidelity WebRTC Audio Calling & routing",
-      "Encrypted communication channels (E2EE)",
-      "Refresh Token Rotation (RTR) auth security",
-      "Neo-Brutalist Design UI theme"
+      "Autonomous AI Penetration Testing via ReAct Agent Loop",
+      "Passive Reconnaissance & Discovery (Nmap, Nuclei, Subfinder, Wafw00f)",
+      "AST-Driven Static Application Security Testing (SAST) & Code Remediation",
+      "Multi-Model Inference (Llama 3.3 70B / GPT-OSS 120B) with Key Load Balancing Pool",
+      "Real-time Diagnostic Streaming via Server-Sent Events (SSE)",
+      "Hardened Security Architecture with Helmet, Rate Limiting & JWT Auth"
     );
   } else if (filename.includes("(3)")) {
     title = "Hikari";
