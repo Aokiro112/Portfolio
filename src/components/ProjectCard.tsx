@@ -47,35 +47,43 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
       return (
         <svg viewBox="0 0 200 130" className="w-full h-full">
           {/* Background */}
-          <rect width="200" height="130" fill="#7a3ebb" />
+          <rect width="200" height="130" fill="#0b0f19" />
           {/* Header Bar */}
-          <rect width="200" height="15" fill="#582a8f" />
+          <rect width="200" height="15" fill="#151b2b" />
           <circle cx="8" cy="7.5" r="3" fill="#ff5f56" />
           <circle cx="18" cy="7.5" r="3" fill="#ffbd2e" />
           <circle cx="28" cy="7.5" r="3" fill="#27c93f" />
-          <text x="100" y="11" fill="#dfc9f7" fontSize="8" textAnchor="middle" fontFamily="monospace">KAIRO Chat</text>
+          <text x="100" y="11" fill="#00f0ff" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="monospace">KAIRO AI Workstation</text>
           
-          {/* Sidebar */}
-          <rect x="5" y="20" width="45" height="105" fill="#582a8f" rx="3" />
-          <circle cx="15" cy="30" r="5" fill="#faf0e6" />
-          <rect x="24" y="28" width="20" height="4" fill="#faf0e6" rx="1" />
-          <circle cx="15" cy="45" r="5" fill="#e3a2ee" />
-          <rect x="24" y="43" width="20" height="4" fill="#e3a2ee" rx="1" />
-          <circle cx="15" cy="60" r="5" fill="#e3a2ee" />
+          {/* Terminal / Code Box */}
+          <rect x="8" y="22" width="125" height="100" fill="#111827" stroke="#00f0ff" strokeWidth="1" rx="4" />
+          <text x="14" y="34" fill="#27c93f" fontSize="7" fontFamily="monospace">&gt; [RECON] Nmap/Nuclei scanning...</text>
+          <text x="14" y="46" fill="#00f0ff" fontSize="7" fontFamily="monospace">&gt; [SAST] AST parser analyzing...</text>
+          <text x="14" y="58" fill="#e3a2ee" fontSize="7" fontFamily="monospace">&gt; [REACT] Llama 3.3 agent active</text>
+          <text x="14" y="70" fill="#ffbd2e" fontSize="7" fontFamily="monospace">&gt; [THREAT] 3 vulnerabilities found</text>
+          <text x="14" y="82" fill="#27c93f" fontSize="7" fontFamily="monospace">&gt; [AUTO-PATCH] Remediation generated</text>
           
-          {/* Chat Bubble 1 */}
-          <rect x="60" y="25" width="80" height="25" fill="#faf0e6" rx="5" />
-          <rect x="68" y="31" width="64" height="4" fill="#09090a" rx="1" />
-          <rect x="68" y="39" width="40" height="4" fill="#09090a" rx="1" />
-          
-          {/* Chat Bubble 2 (User response) */}
-          <rect x="110" y="60" width="80" height="25" fill="#e3a2ee" rx="5" />
-          <rect x="118" y="66" width="64" height="4" fill="#09090a" rx="1" />
-          <rect x="118" y="74" width="45" height="4" fill="#09090a" rx="1" />
+          {/* Terminal prompt cursor */}
+          <rect x="14" y="94" width="113" height="18" fill="#0b0f19" stroke="#374151" strokeWidth="0.8" rx="2" />
+          <text x="18" y="106" fill="#00f0ff" fontSize="7" fontFamily="monospace">&gt; kairo audit --full _</text>
 
-          {/* Input box */}
-          <rect x="55" y="105" width="140" height="18" fill="#faf0e6" rx="4" />
-          <rect x="62" y="112" width="50" height="4" fill="#8f44e8" rx="1" />
+          {/* Right Security Shield & Radar Graphic */}
+          <g transform="translate(163, 62)">
+            {/* Shield Outline */}
+            <path d="M0,-24 L18,-15 L18,5 C18,17 0,26 0,26 C0,26 -18,17 -18,5 L-18,-15 Z" fill="#151b2b" stroke="#00f0ff" strokeWidth="1.5" />
+            {/* Inner Shield Accent */}
+            <path d="M0,-18 L12,-10 L12,4 C12,13 0,20 0,20 C0,20 -12,13 -12,4 L-12,-10 Z" fill="#00f0ff" fillOpacity="0.15" stroke="#e3a2ee" strokeWidth="1" />
+            {/* Lock / Cyber Icon */}
+            <rect x="-5" y="-3" width="10" height="9" fill="#00f0ff" rx="1.5" />
+            <path d="M-3,-3 L-3,-7 C-3,-9.5 3,-9.5 3,-7 L3,-3" fill="none" stroke="#00f0ff" strokeWidth="1.2" />
+            
+            {/* Status Pulse Dot */}
+            <circle cx="0" cy="1.5" r="1.5" fill="#0b0f19" />
+          </g>
+
+          {/* Live Badge */}
+          <rect x="140" y="102" width="46" height="14" fill="#00f0ff" rx="3" />
+          <text x="163" y="112" fill="#0b0f19" fontSize="7" fontWeight="bold" textAnchor="middle" fontFamily="monospace">LIVE SHIELD</text>
         </svg>
       );
     }
