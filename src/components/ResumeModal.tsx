@@ -16,7 +16,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
     }
   };
 
-  const email = "aokiro@hikaris.in";
+  const email = "mayanktharwani9@gmail.com";
 
   return (
     <AnimatePresence>
@@ -148,13 +148,13 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                     {/* Project 2 */}
                     <div>
                       <div className="flex justify-between items-baseline font-sans">
-                        <h3 className="font-extrabold text-sm md:text-base">KAIRO Super App Platform</h3>
-                        <span className="text-xs font-mono opacity-80 font-bold">2025</span>
+                        <h3 className="font-extrabold text-sm md:text-base">Kairo AI — Autonomous Cybersecurity Workstation</h3>
+                        <span className="text-xs font-mono opacity-80 font-bold">2026</span>
                       </div>
-                      <p className="text-xs font-mono text-ink-black/60 italic mb-1.5">React Native, Expo, WebRTC, Socket.IO, Express, MySQL, Prisma, Docker</p>
+                      <p className="text-xs font-mono text-ink-black/60 italic mb-1.5">Next.js 15, React 19, TypeScript, Node.js, Express, Prisma, SQLite, ReAct Loop, Llama 3.3, AST/SAST, Docker</p>
                       <ul className="list-disc pl-5 flex flex-col gap-1 text-xs md:text-sm">
-                        <li>Developed a real-time messaging client with typing indicators, Seen/Delivered receipts, and end-to-end encryption.</li>
-                        <li>Integrated peer-to-peer WebRTC video/audio calling with native audio routing and state simulation fallback.</li>
+                        <li>Architected an autonomous cybersecurity workstation combining real-time ReAct penetration testing, passive reconnaissance, and AST static code analysis.</li>
+                        <li>Implemented multi-model LLM load-balancing pools and real-time thought/scan streaming over Server-Sent Events (SSE).</li>
                       </ul>
                     </div>
 
