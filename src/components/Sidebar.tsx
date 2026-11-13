@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Home, User, Star, Folder, FileText, Mail } from "lucide-react";
+import { Home, User, Briefcase, Star, Folder, FileText, Mail } from "lucide-react";
 
 interface SidebarProps {
   activeSection: string;
@@ -14,6 +14,7 @@ export default function Sidebar({ activeSection, onNavigate, onResumeClick }: Si
   const menuItems = [
     { id: "home", label: "Home", icon: Home },
     { id: "about", label: "About Me", icon: User },
+    { id: "experience", label: "Experience", icon: Briefcase },
     { id: "skills", label: "Language and Frameworks", icon: Star },
     { id: "projects", label: "Projects", icon: Folder },
     { id: "resume", label: "Resume", icon: FileText, isAction: true },

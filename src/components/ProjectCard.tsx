@@ -11,34 +11,38 @@ interface ProjectCardProps {
 export default function ProjectCard({ project, onClick }: ProjectCardProps) {
   // Select SVG mockup based on project id
   const renderMockup = () => {
-    const isJigglypuff = project.id.includes("jigglypuff");
+    const isIdleVisualizer = project.id.includes("idle") || project.id.includes("visualizer") || project.id.includes("jigglypuff");
     const isKairo = project.id.includes("kairo");
     const isHikari = project.id.includes("hikari");
     const isLocalCoder = project.id.includes("localcoder");
 
-    if (isJigglypuff) {
+    if (isIdleVisualizer) {
       return (
         <svg viewBox="0 0 200 130" className="w-full h-full">
-          {/* Background */}
-          <rect width="200" height="130" fill="#121324" />
+          {/* Pure Pitch Black Canvas */}
+          <rect width="200" height="130" fill="#050508" />
           {/* Header Bar */}
-          <rect width="200" height="15" fill="#1e2030" />
+          <rect width="200" height="15" fill="#111116" />
           <circle cx="8" cy="7.5" r="3" fill="#ff5f56" />
           <circle cx="18" cy="7.5" r="3" fill="#ffbd2e" />
           <circle cx="28" cy="7.5" r="3" fill="#27c93f" />
-          <text x="100" y="11" fill="#7e84b0" fontSize="8" textAnchor="middle" fontFamily="monospace">Jigglypuff Player</text>
+          <text x="100" y="11" fill="#e5c890" fontSize="7.5" fontWeight="bold" textAnchor="middle" fontFamily="monospace">idle-visualizer (Rust • GTK4)</text>
           
-          {/* Music Waves / Play Interface */}
-          <path d="M 20 70 Q 40 40 60 70 T 100 70 T 140 70 T 180 70" fill="none" stroke="#d25c88" strokeWidth="2" strokeLinecap="round" />
-          <path d="M 20 70 Q 40 20 60 70 T 100 70 T 140 70 T 180 70" fill="none" stroke="#1ba0d9" strokeWidth="1.5" strokeOpacity="0.5" strokeLinecap="round" />
+          {/* Peripheral Upper Lyric */}
+          <text x="100" y="40" fill="#7f849c" fontSize="8" textAnchor="middle" fontFamily="sans-serif" opacity="0.65">whispers softly in the silence</text>
           
-          {/* Player controls */}
-          <circle cx="100" cy="105" r="12" fill="#d25c88" />
-          <polygon points="97,100 106,105 97,110" fill="#faf0e6" />
-          <circle cx="75" cy="105" r="8" fill="#1ba0d9" />
-          <polygon points="77,102 71,105 77,108" fill="#faf0e6" />
-          <circle cx="125" cy="105" r="8" fill="#1ba0d9" />
-          <polygon points="123,102 129,105 123,108" fill="#faf0e6" />
+          {/* Active Sung Lyric with Rounded Highlight Pill */}
+          <rect x="30" y="52" width="140" height="26" rx="13" fill="#d25c88" fillOpacity="0.25" stroke="#d25c88" strokeWidth="1.2" />
+          <text x="100" y="69" fill="#f5e0dc" fontSize="11" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif" letterSpacing="0.8">SYNCHRONIZED</text>
+          
+          {/* Peripheral Lower Lyric */}
+          <text x="100" y="93" fill="#a6adc8" fontSize="8" textAnchor="middle" fontFamily="sans-serif" opacity="0.75">monumental rolling typography</text>
+          
+          {/* MPRIS & Tech Footbar */}
+          <rect x="10" y="107" width="180" height="16" rx="3" fill="#13141c" stroke="#2a2b3d" strokeWidth="0.8" />
+          <polygon points="18,112 18,118 24,115" fill="#27c93f" />
+          <text x="29" y="118.5" fill="#cdd6f4" fontSize="6.5" fontFamily="monospace">Spotify • MPRIS Active</text>
+          <text x="184" y="118.5" fill="#d25c88" fontSize="6.5" fontWeight="bold" textAnchor="end" fontFamily="monospace">RUST • OPENGL</text>
         </svg>
       );
     }

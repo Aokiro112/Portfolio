@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FileText, Download, Printer, X } from "lucide-react";
+import { FileText, Printer } from "lucide-react";
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -105,7 +105,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 font-sans text-xs md:text-sm">
                     <div>
-                      <span className="font-bold">Languages:</span> JavaScript, TypeScript, Python, SQL, HTML/CSS
+                      <span className="font-bold">Languages:</span> JavaScript, TypeScript, Python, Rust, SQL, HTML/CSS
                     </div>
                     <div>
                       <span className="font-bold">Frontend Frameworks:</span> React, Next.js (App Router), React Native
@@ -117,10 +117,63 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                       <span className="font-bold">Databases & ORMs:</span> PostgreSQL, MySQL, SQLite, Prisma ORM, Sequelize
                     </div>
                     <div>
-                      <span className="font-bold">Developer Tools:</span> Git, Docker, Vite, Electron, Ollama, Jina AI
+                      <span className="font-bold">Developer Tools:</span> Git, Docker, Vite, Electron, Ollama, Jina AI, GTK4, OpenGL
                     </div>
                     <div>
                       <span className="font-bold">Design Philosophy:</span> Neo-Brutalist layouts, Responsive design, Accessible components
+                    </div>
+                  </div>
+                </div>
+
+                {/* Work Experience Section */}
+                <div className="mb-6">
+                  <h2 className="font-extrabold text-sm md:text-base font-sans tracking-wider text-ink-black uppercase border-b border-ink-black/20 mb-2">
+                    Work Experience
+                  </h2>
+                  
+                  <div className="flex flex-col gap-3.5">
+                    <div>
+                      <div className="flex justify-between items-baseline font-sans">
+                        <h3 className="font-extrabold text-sm md:text-base">Chief Technology Officer — Kritix AI</h3>
+                        <span className="text-xs font-mono opacity-80 font-bold">Oct 2026 – Present</span>
+                      </div>
+                      <p className="text-xs font-mono text-ink-black/60 italic mb-1">Full-time • Jaipur, Rajasthan, India (Remote)</p>
+                      <ul className="list-disc pl-5 flex flex-col gap-0.5 text-xs md:text-sm">
+                        <li>Leading technology management, technical architecture, and engineering strategy for enterprise AI solutions.</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between items-baseline font-sans">
+                        <h3 className="font-extrabold text-sm md:text-base">Founder — Kairo</h3>
+                        <span className="text-xs font-mono opacity-80 font-bold">Sep 2026 – Present</span>
+                      </div>
+                      <p className="text-xs font-mono text-ink-black/60 italic mb-1">Full-time • Jaipur, Rajasthan, India (On-site)</p>
+                      <ul className="list-disc pl-5 flex flex-col gap-0.5 text-xs md:text-sm">
+                        <li>Spearheading product development, full-stack backend architecture, and core business operations.</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between items-baseline font-sans">
+                        <h3 className="font-extrabold text-sm md:text-base">Intern — Nityasha AI</h3>
+                        <span className="text-xs font-mono opacity-80 font-bold">Jun 2026 – Sep 2026</span>
+                      </div>
+                      <p className="text-xs font-mono text-ink-black/60 italic mb-1">Internship • Remote</p>
+                      <ul className="list-disc pl-5 flex flex-col gap-0.5 text-xs md:text-sm">
+                        <li>Contributed to JavaScript libraries, modern frontend tooling, and AI integration components.</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between items-baseline font-sans">
+                        <h3 className="font-extrabold text-sm md:text-base">Intern — Project Banao</h3>
+                        <span className="text-xs font-mono opacity-80 font-bold">Apr 2026 – May 2026</span>
+                      </div>
+                      <p className="text-xs font-mono text-ink-black/60 italic mb-1">Part-time • Remote</p>
+                      <ul className="list-disc pl-5 flex flex-col gap-0.5 text-xs md:text-sm">
+                        <li>Worked as an intern on existing projects, contributed to the development of new projects, and resolved bugs and technical issues.</li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -159,6 +212,19 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                     </div>
 
                     {/* Project 3 */}
+                    <div>
+                      <div className="flex justify-between items-baseline font-sans">
+                        <h3 className="font-extrabold text-sm md:text-base">idle-visualizer — Lyric Visualizer for Linux</h3>
+                        <span className="text-xs font-mono opacity-80 font-bold">2026</span>
+                      </div>
+                      <p className="text-xs font-mono text-ink-black/60 italic mb-1.5">Rust, GTK4, OpenGL, Pango, Cairo, D-Bus MPRIS, Wayland Layer Shell</p>
+                      <ul className="list-disc pl-5 flex flex-col gap-1 text-xs md:text-sm">
+                        <li>Engineered an ambient word-by-word synchronized lyric visualizer in native Rust with continuous typography easing.</li>
+                        <li>Implemented D-Bus MPRIS discovery to synchronize with Spotify, YouTube Music, and web players on OLED black canvas.</li>
+                      </ul>
+                    </div>
+
+                    {/* Project 4 */}
                     <div>
                       <div className="flex justify-between items-baseline font-sans">
                         <h3 className="font-extrabold text-sm md:text-base">LocalCoder AI Coding Agent</h3>

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Project } from "@/lib/projects";
-import { X, FileText, Info, Code, ShieldAlert } from "lucide-react";
+import { FileText } from "lucide-react";
 
 interface ProjectDetailsModalProps {
   project: Project | null;

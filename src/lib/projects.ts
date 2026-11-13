@@ -37,7 +37,7 @@ export function getProjects(): Project[] {
     }
   });
 
-  // Sort them so that: README.md (Jigglypuff) -> README(2).md (Kairo) -> README(3).md (Hikari) -> README(4).md (LocalCoder)
+  // Sort them so that: README.md (idle-visualizer) -> README(2).md (Kairo) -> README(3).md (Hikari) -> README(4).md (LocalCoder)
   return projects.sort((a, b) => {
     const getNum = (name: string) => {
       const match = name.match(/\((\d+)\)/);
@@ -60,20 +60,21 @@ function parseProjectMarkdown(filename: string, content: string): Project | null
 
   // Determine project based on filename or contents
   if (filename === "README.md") {
-    title = "Jigglypuff";
-    tagline = "A blazingly fast, offline-first & online-capable desktop music player built with Electron and React.";
-    description = "Jigglypuff is a lightweight, hybrid music player designed for users who want total control over their local music library while seamlessly accessing the infinite catalog of online music. Built on modern web technologies and wrapped in an optimized Electron shell, it provides an ad-free, tracking-free, and blazing-fast listening experience. Whether you're organizing local MP3s, streaming from YouTube, or building hybrid playlists, Jigglypuff handles it elegantly.";
+    title = "idle-visualizer";
+    tagline = "An elegant lyric visualizer for Linux rendering synchronized rolling typography in Rust, GTK4 & OpenGL.";
+    description = "idle-visualizer is an elegant lyric visualizer for Linux desktops. It monitors playing music across players such as YouTube Music Desktop, Spotify, and browser media sessions via MPRIS, rendering word-by-word synchronized rolling typography on an immersive pure black canvas using native Rust, GTK4, OpenGL, and Pango Cairo text rasterization.";
+    url = "https://github.com/Aokiro112/idle-visualizer";
     
     // Extract tech stack
-    techStack.push("React 19", "Electron 42", "Vite 8", "Zustand", "IndexedDB", "Node.js", "yt-dlp", "Discord RPC");
+    techStack.push("Rust", "GTK4", "OpenGL", "Pango Cairo", "D-Bus MPRIS", "LRCLIB API", "Wayland Layer Shell", "Libadwaita");
     
     // Extract features
     features.push(
-      "Offline-First Local Playback (MP3, MP4, M4A, etc.)",
-      "Online Search & Streaming (yt-search & yt-dlp)",
-      "Hybrid Library Management",
-      "Discord Rich Presence integration",
-      "Neo-Brutalist / Dark UI design"
+      "Word-by-word synchronized rolling typography with cubic easing",
+      "Pure pitch black canvas optimized for OLED & modern displays",
+      "D-Bus MPRIS discovery for Spotify, YouTube Music Desktop & browsers",
+      "Automatic screen saver power assertion during playback",
+      "Modular architecture with LRCLIB API & offline caching"
     );
   } else if (filename.includes("(2)")) {
     title = "Kairo AI";
