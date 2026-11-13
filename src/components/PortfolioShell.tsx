@@ -222,9 +222,9 @@ export default function PortfolioShell({ projects }: PortfolioShellProps) {
                       )}
 
                       {exp.skills && (
-                        <div className="flex items-center gap-1.5 text-xs font-bold text-ink-black/95 mt-1">
-                          <span className="text-brand-pink text-xs select-none">💎</span>
-                          <span className="font-sans">{exp.skills}</span>
+                        <div className="text-xs font-medium text-ink-black/90 mt-1 font-sans">
+                          <span className="font-bold text-ink-black">Skills: </span>
+                          <span>{exp.skills}</span>
                         </div>
                       )}
                     </div>
